@@ -83,11 +83,11 @@ spec:
             backend:
               {{- if semverCompare ">=1.19-0" $gitVersion }}
               service:
-                name: {{ $fullName }}
+                name: {{ $fullName }}-frontend
                 port:
                   number: {{ $mapping.port }}
               {{- else }}
-              serviceName: {{ $fullName }}
+              serviceName: {{ $fullName }}-frontend
               servicePort: {{ $mapping.port }}
               {{- end }}
         {{- end }}
