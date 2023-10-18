@@ -76,11 +76,14 @@ spec:
             httpGet:
               path: /api/api-docs
               port: 8080
-              httpHeaders:
-                - name: Custom-Header
-                  value: Awesome
             initialDelaySeconds: 20
             periodSeconds: 30
+          readinessProbe:
+            httpGet:
+              path: /api/api-docs
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 10
       volumes:
         - name: configuration
           configMap:
