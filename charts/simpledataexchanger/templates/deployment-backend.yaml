@@ -72,6 +72,15 @@ spec:
             - name: configuration
               mountPath: /app/configuration.properties
               subPath: configuration.properties
+          livenessProbe:
+            httpGet:
+              path: /api/api-docs
+              port: 8080
+              httpHeaders:
+                - name: Custom-Header
+                  value: Awesome
+            initialDelaySeconds: 20
+            periodSeconds: 30
       volumes:
         - name: configuration
           configMap:
