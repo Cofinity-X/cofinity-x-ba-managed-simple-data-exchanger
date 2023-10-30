@@ -65,6 +65,9 @@ backend:
     port: 7070
     targetPort: 8080
 
+  config:
+    allowedCorsOrigin: "https://replace.me"
+
   backend:
     endpoints:
       ## Default api exposing health checks etc

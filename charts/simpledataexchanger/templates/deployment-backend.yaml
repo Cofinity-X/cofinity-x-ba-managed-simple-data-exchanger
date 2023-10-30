@@ -64,6 +64,8 @@ spec:
               value: {{ .Values.sdepostgresql.auth.username | required ".Values.sdepostgresql.auth.username is required" | quote }}             
             - name: SPRING_DATASOURCE_PASSWORD
               value: {{ .Values.sdepostgresql.auth.password | required ".Values.sdepostgresql.auth.password is required" | quote}}
+            - name: ALLOWED_CORS_ORIGIN
+              value: { { .Values.backend.config.allowedCorsOrigin | quote } }
               
           envFrom:
             - configMapRef:
